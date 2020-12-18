@@ -13,5 +13,11 @@ pipeline {
       }
     }
 
+    stage('report') {
+      steps {
+        sh 'mvn clean package'
+      }
+    }
+
   }
 }
