@@ -17,7 +17,7 @@ pipeline {
       parallel {
         stage('report') {
           steps {
-            sh 'mvn clean package'
+            archiveArtifacts 'target/*.jar'
           }
         }
 
