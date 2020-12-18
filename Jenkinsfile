@@ -14,8 +14,19 @@ pipeline {
     }
 
     stage('report') {
-      steps {
-        sh 'mvn clean package'
+      parallel {
+        stage('report') {
+          steps {
+            sh 'mvn clean package'
+          }
+        }
+
+        stage('junit') {
+          steps {
+            sh 'mvn clean package'
+          }
+        }
+
       }
     }
 
